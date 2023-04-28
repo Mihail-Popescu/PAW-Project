@@ -1,0 +1,36 @@
+﻿@model List<ProiectPAW__MVC_.Models.OrderItem>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+@if (Model.Any())
+{
+    <div class="cart-container">
+        <h1>Your Cart</h1>
+        <div class="cart-items">
+            @foreach (var item in Model)
+            {
+                <div class="cart-item">
+                    <img src="@item.Product.ImageUrl" alt="@item.Product.Name">
+                    <div class="cart-item-info">
+                        <div class="plan-price">@item.OrderItemId</div>
+                        <h2>@item.Product.Name</h2>
+                        <p>Price: $@item.Product.Price</p>
+                        <button class="cart-remove-button" onclick="location.href='@Url.Action("RemoveFromCart", "Cart", new { orderItemId = item.OrderItemId })'">Remove</button>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="cart-total">
+            <p>Total: $@(Model.Sum(item => item.Product.Price))</p>
+        </div>
+        <button class="cart-checkout-button" onclick="location.href='@Url.Action("Checkout", "Purchase")'">Checkout</button>
+    </div>
+}
+else
+{
+    <div class="cart-empty">
+        <h1>Your Cart</h1>
+        <p>Your cart is empty.</p>
+    </div>
+}

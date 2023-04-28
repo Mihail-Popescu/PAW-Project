@@ -1,0 +1,40 @@
+﻿@page
+
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/Company.css" />
+
+</head>
+
+<body>
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome to</h1>
+        <h1 class="display-4">FSFS</h1>
+        <p><a>Connecting people since 1970</a></p>
+    </div>
+
+    <div class="slider">
+        <img src="https://img.freepik.com/free-vector/internet-communication_24877-51941.jpg?w=2000" alt="Slide 1" class="active">
+        <img src="https://cdn.britannica.com/88/129488-131-09AB5E83/Internet-blue-screen-blog-society-history-media-2009.jpg" alt="Slide 2">
+        <img src="https://www.intel.in/content/dam/www/central-libraries/us/en/images/language-icon-lvl-2-abstract-bg.png.rendition.intel.web.864.486.png" alt="Slide 3">
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slider img');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 3500);
+    </script>
+</body>
+
+

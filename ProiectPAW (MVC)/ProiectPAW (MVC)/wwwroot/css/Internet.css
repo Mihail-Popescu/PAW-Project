@@ -1,0 +1,63 @@
+﻿.plan-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.plan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: #eee;
+    border: none;
+    box-shadow: 2px 2px 5px #888;
+    margin: 10px;
+}
+
+    .plan:hover {
+        background-color: #ddd;
+    }
+
+.plan-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.plan-type {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.plan-description {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.plan-button {
+    margin-top: 10px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.plan-add-to-cart {
+    background-color: #428bca;
+}
+
+.plan-buy-now {
+    background-color: #5cb85c;
+}
+
+.plan-buttons-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10px;
+}

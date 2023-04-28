@@ -1,0 +1,55 @@
+﻿.phones-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.phone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #eee;
+    box-shadow: 2px 2px 5px #888;
+}
+
+    .phone:hover {
+        background-color: #ddd;
+    }
+
+.phone-image {
+    width: 250px;
+    height: 250px;
+    margin-top: 10px;
+}
+
+.phone-name {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.phone-price {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.add-to-cart-button {
+    margin-top: 10px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #428bca;
+}
+
+    .add-to-cart-button:hover {
+        cursor: pointer;
+        background-color: #5cb85c;
+    }

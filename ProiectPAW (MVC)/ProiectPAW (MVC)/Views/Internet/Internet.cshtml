@@ -1,0 +1,25 @@
+﻿@model List<ProiectPAW__MVC_.Models.Product>
+
+<head>
+    <link rel="stylesheet" href="~/css/Internet.css" />
+</head>
+
+<div class="plan-container">
+    @foreach (var internetPlan in Model)
+    {
+        <div class="plan">
+            <div class="plan-title">@internetPlan.Name</div>
+            <div class="plan-type">@internetPlan.Category.Name</div>
+            <div class="plan-description">@internetPlan.Description</div>
+            <div class="plan-price">@internetPlan.Price</div>
+            <img class="plan-image" src="@internetPlan.ImageUrl" alt="Plan Image">
+            <div class="plan-buttons-container">
+                <form method="post" action="/Cart/AddToCart">
+                    <input type="hidden" name="productId" value="@internetPlan.ProductId" />
+                    <button type="submit" class="plan-button plan-add-to-cart">Add to Cart</button>
+                </form>
+                <button class="plan-button plan-buy-now">Buy Now</button>
+            </div>
+        </div>
+    }
+</div>

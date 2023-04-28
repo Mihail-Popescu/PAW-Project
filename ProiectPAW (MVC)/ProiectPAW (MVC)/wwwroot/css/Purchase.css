@@ -1,0 +1,140 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+.container {
+    width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+
+h2 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="password"] {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #000;
+        background: transparent;
+        outline: none;
+        height: 40px;
+        color: #000;
+        font-size: 16px;
+    }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group input[type="password"]:focus {
+            border-color: #000;
+        }
+
+    .form-group input[type="submit"] {
+        border: none;
+        outline: none;
+        height: 40px;
+        color: #fff;
+        font-size: 16px;
+        background-color: #000;
+        cursor: pointer;
+        border-radius: 20px;
+        margin-top: 20px;
+    }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #262626;
+        }
+
+    .form-group .small-text {
+        font-size: 12px;
+        color: #777;
+    }
+
+    .form-group .error {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .form-group .valid {
+        color: green;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .form-group .card-type {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+        .form-group .card-type select {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #000;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #000;
+            font-size: 16px;
+        }
+
+    .form-group .card-details {
+        margin-bottom: 20px;
+    }
+
+        .form-group .card-details label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group .card-details input[type="text"],
+        .form-group .card-details input[type="tel"],
+        .form-group .card-details input[type="password"] {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #000;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #000;
+            font-size: 16px;
+        }
+
+            .form-group .card-details input[type="text"]:focus,
+            .form-group .card-details input[type="tel"]:focus,
+            .form-group .card-details input[type="password"]:focus {
+                border-color: #000;
+            }
+
+        .form-group .card-details .small-text {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .form-group .card-details .error {
+        }
