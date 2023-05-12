@@ -1,0 +1,98 @@
+﻿@page
+@{
+}
+
+<html>
+<head>
+    <title>Create Account</title>
+    <link rel="stylesheet" type="text/css" href="~/css/CreateAccount.css">
+</head>
+<body>
+    <div class="login-box" style="display: grid;">
+        <h2>Create Account</h2>
+        <form action="@Url.Action("Create", "CreateAccount")" method="post">
+            <div class="column">
+            <div class="user-box">
+                <label>First Name</label>
+                <input type="text" name="customer.FirstName" required="">
+            </div>
+            <div class="user-box">
+                <label>Last Name</label>
+                    <input type="text" name="customer.LastName" required="">
+            </div>
+            <div class="user-box">
+                <label>Email</label>
+                    <input type="email" name="customer.Email" required="">
+            </div>
+            <div class="user-box">
+                <label>Password</label>
+                    <input type="password" name="customer.Password" required="">
+            </div>
+            <div class="user-box">
+                <label>Phone Number</label>
+                    <input type="number" name="customer.PhoneNumber" required="">
+            </div>
+            <div class="user-box">
+                <label>Profile Image</label>
+                    <input type="file" name="customer.Profile Image" required="">
+            </div>
+            </div>
+            <div class="column">
+                <div class="user-box">
+                    <label>Country</label>
+                    <input type="text" name="address.Country" required="">
+                </div>
+                <div class="user-box">
+                    <label>County</label>
+                    <input type="text" name="address.County" required="">
+                </div>
+                <div class="user-box">
+                    <label>City</label>
+                    <input type="text" name="address.City" required="">
+                </div>
+                <div class="user-box">
+                    <label>Postalcode</label>
+                    <input type="number" name="address.Postalcode" required="">
+                </div>
+                <div class="user-box">
+                    <label>Block</label>
+                    <input type="number" name="address.Block" required="">
+                </div>
+                <div class="user-box">
+                    <label>Floor</label>
+                    <input type="number" name="address.Floor" required="">
+                </div>
+                <div class="user-box">
+                    <label>Apartment</label>
+                    <input type="number" name="address.Apartment" required="">
+                </div>
+                <div class="user-box">
+                    <label>Staircase</label>
+                    <input type="number" name="address.Staircase" required="">
+                </div>
+                <div class="user-box">
+                    <labael><b>Street</b></labael>
+                    <input type="text" name="address.Street" required="">
+                </div>
+             </div>
+            <div class="column">
+                <div class="user-box">
+                    <label>Number</label>
+                    <input type="number" name="card.Number" required="">
+                </div>
+                <div class="user-box">
+                    <label>Expiration Date</label>
+                    <input type="date" name="card.Date" required="">
+                </div>
+                <div class="user-box">
+                    <label>CVV</label>
+                    <input type="number" name="card.CVV" required="">
+                </div>
+            </div>
+
+            <a href="/Login">Already have an account?</a>
+            <input type="submit" name="create_account" value="Create Account">
+        </form>
+    </div>
+</body>
+</html>

@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="~/css/Homepage.css" />
 </head>
 
+@if (TempData.ContainsKey("SuccessMessage"))
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
 
 <div class="plan-container">
     <div class="plan">

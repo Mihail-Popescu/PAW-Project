@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\Company.css"
     },
     {
+      "Id": "C:\\Users\\mihai\\source\\repos\\ProiectPAW (MVC)\\ProiectPAW (MVC)\\wwwroot\\css\\CreateAccount.css",
+      "PackagePath": "staticwebassets\\css\\CreateAccount.css"
+    },
+    {
       "Id": "C:\\Users\\mihai\\source\\repos\\ProiectPAW (MVC)\\ProiectPAW (MVC)\\wwwroot\\css\\Homepage.css",
       "PackagePath": "staticwebassets\\css\\Homepage.css"
     },

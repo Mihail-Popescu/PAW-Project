@@ -1,10 +1,12 @@
 ﻿using ProiectPAW__MVC_.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace ProiectPAW__MVC_.Data
 {
-    public class ProiectPAWDbContext : DbContext
+    public class ProiectPAWDbContext : IdentityDbContext<IdentityUser>
     {
         private readonly IConfiguration _configuration;
 
@@ -17,6 +19,9 @@ namespace ProiectPAW__MVC_.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // other configuration code...
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<IdentityUserLogin<string>>()
+        .HasKey(l => new { l.LoginProvider, l.ProviderKey });
 
             modelBuilder.Entity<Product>()
                 .HasKey(p => p.ProductId);
@@ -34,6 +39,8 @@ namespace ProiectPAW__MVC_.Data
                 .HasKey(c => c.OrderId);
             modelBuilder.Entity<OrderItem>()
                 .HasKey(c => c.OrderItemId);
+            modelBuilder.Entity<Admin>()
+                .HasKey(c => c.AdminId);
         }
 
         public DbSet<ActiveService> ActiveService { get; set; }
@@ -44,7 +51,7 @@ namespace ProiectPAW__MVC_.Data
         public DbSet<Order> Order { get; set; }
         public DbSet<OrderItem> OrderItem { get; set; }
         public DbSet<Product> Product { get; set; }
-
+        public DbSet<Admin> Admin { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
