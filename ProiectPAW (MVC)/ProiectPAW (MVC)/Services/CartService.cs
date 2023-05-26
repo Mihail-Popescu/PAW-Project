@@ -27,7 +27,7 @@ public class CartService
         {
             order = new Order
             {
-                OrderDate = DateTime.Now,
+                OrderDate = null, // Set OrderDate to null for a new cart
                 TotalPrice = product.Price,
                 CustomerId = customerId
             };
@@ -49,6 +49,7 @@ public class CartService
 
         return (int)order.OrderId;
     }
+
 
     public async Task<bool> RemoveFromCartAsync(int orderItemId)
     {

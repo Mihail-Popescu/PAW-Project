@@ -1,0 +1,46 @@
+﻿@page
+@{
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Homepage.css" />
+</head>
+
+@if (TempData.ContainsKey("SuccessMessage"))
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="plan-container">
+    <div class="plan">
+        <div class="plan-title">Unlimited Plan</div>
+        <div class="plan-type">Postpaid</div>
+        <div class="plan-description">Everything Unlimited</div>
+        <div class="plan-buttons-container">
+            <button class="plan-button plan-add-to-cart">Add to Cart</button>
+            <button class="plan-button plan-buy-now">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="plan">
+        <div class="plan-title">Premiun Plan</div>
+        <div class="plan-type">Premium TV</div>
+        <div class="plan-description">250 channels</div>
+        <div class="plan-buttons-container">
+            <button class="plan-button plan-add-to-cart">Add to Cart</button>
+            <button class="plan-button plan-buy-now">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="plan">
+        <div class="plan-title">Power Plan</div>
+        <div class="plan-type">Fiber Optic Internet</div>
+        <div class="plan-description">1000 Mbps</div>
+        <div class="plan-buttons-container">
+            <button class="plan-button plan-add-to-cart">Add to Cart</button>
+            <button class="plan-button plan-buy-now">Buy Now</button>
+        </div>
+    </div>
+</div>

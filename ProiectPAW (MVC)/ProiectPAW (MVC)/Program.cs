@@ -19,9 +19,11 @@ builder.Services.AddTransient<OrderItemRepository>();
 builder.Services.AddTransient<CustomerRepository>();
 builder.Services.AddTransient<AddressRepository>();
 builder.Services.AddTransient<CardRepository>();
-
+builder.Services.AddTransient<AdminRepository>();
 
 builder.Services.AddTransient<InternetService>();
+builder.Services.AddTransient<MobileService>();
+builder.Services.AddTransient<TelevisionService>();
 builder.Services.AddTransient<PhonesService>();
 builder.Services.AddTransient<CartService>();
 builder.Services.AddTransient<CreateAccountService>();
@@ -32,12 +34,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ProiectPAWDbContext>();builder.Services.AddDbContext<ProiectPAWDbContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddRazorPages();
-builder.Services.AddDistributedMemoryCache();
-
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromSeconds(1800);
+    options.IdleTimeout = TimeSpan.FromSeconds(1800000);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
@@ -58,20 +57,11 @@ if (!app.Environment.IsDevelopment())
 app.UseSession();
 
 
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseRouting();
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "default",
+app.MapControllerRoute(
+    name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-    endpoints.MapRazorPages();
-});
 app.Run();

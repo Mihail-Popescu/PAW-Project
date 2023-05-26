@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QJGi8u2UcfAvdqzDXsClyQR0kKXQu0FBAkPGydKeS9Q=",
+  "Hash": "QvHc+V87CU0T1K+22IE1/a3IJ4xt1hrjLqDThaktNbU=",
   "Source": "ProiectPAW (MVC)",
   "BasePath": "_content/ProiectPAW (MVC)",
   "Mode": "Default",
@@ -1105,23 +1105,6 @@
       "OriginalItemSpec": "wwwroot\\css\\Cart.css"
     },
     {
-      "Identity": "C:\\Users\\mihai\\source\\repos\\ProiectPAW (MVC)\\ProiectPAW (MVC)\\wwwroot\\css\\Company.css",
-      "SourceId": "ProiectPAW (MVC)",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mihai\\source\\repos\\ProiectPAW (MVC)\\ProiectPAW (MVC)\\wwwroot\\",
-      "BasePath": "_content/ProiectPAW (MVC)",
-      "RelativePath": "css/Company.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Company.css"
-    },
-    {
       "Identity": "C:\\Users\\mihai\\source\\repos\\ProiectPAW (MVC)\\ProiectPAW (MVC)\\wwwroot\\css\\CreateAccount.css",
       "SourceId": "ProiectPAW (MVC)",
       "SourceType": "Discovered",
@@ -1137,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\CreateAccount.css"
+    },
+    {
+      "Identity": "C:\\Users\\mihai\\source\\repos\\ProiectPAW (MVC)\\ProiectPAW (MVC)\\wwwroot\\css\\header&footer.css",
+      "SourceId": "ProiectPAW (MVC)",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mihai\\source\\repos\\ProiectPAW (MVC)\\ProiectPAW (MVC)\\wwwroot\\",
+      "BasePath": "_content/ProiectPAW (MVC)",
+      "RelativePath": "css/header&footer.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\header&footer.css"
     },
     {
       "Identity": "C:\\Users\\mihai\\source\\repos\\ProiectPAW (MVC)\\ProiectPAW (MVC)\\wwwroot\\css\\Homepage.css",

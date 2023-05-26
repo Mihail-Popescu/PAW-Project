@@ -1,6 +1,4 @@
-﻿@model List<ProiectPAW__MVC_.Models.Product>
-
-<head>
+﻿<head>
     <style>
         .plan-container {
             display: flex;
@@ -77,19 +75,19 @@
 </head>
 
 <div class="plan-container">
-    @foreach (var phone in Model)
+    @foreach (var televisionPlan in Model)
     {
         <div class="plan">
-            <div class="plan-title">@phone.Name</div>
-            <div class="plan-description">@phone.Description</div>
-            <div class="plan-price">@phone.Price</div>
-            <img class="plan-image" src="@phone.ImageUrl" alt="Plan Image">
-            <form method="post" action="/Cart/AddToCart">
-                <input type="hidden" name="productId" value="@phone.ProductId" />
-                <div class="plan-buttons-container">
-                    <button class="plan-button plan-add-to-cart" type="submit">Add to Cart</button>
-                </div>
-            </form>
+            <div class="plan-title">@televisionPlan.Name</div>
+            <div class="plan-description">@televisionPlan.Description</div>
+            <div class="plan-price">@televisionPlan.Price</div>
+            <img class="plan-image" src="@televisionPlan.ImageUrl" alt="Plan Image">
+            <div class="plan-buttons-container">
+                <form method="post" action="/Cart/AddToCart">
+                    <input type="hidden" name="productId" value="@televisionPlan.ProductId" />
+                    <button type="submit" class="plan-button plan-add-to-cart">Add to Cart</button>
+                </form>
+            </div>
         </div>
     }
 </div>

@@ -27,7 +27,7 @@ namespace ProiectPAW__MVC_.Controllers
         {
             HttpContext.Session.Clear();
             TempData["SuccessMessage"] = "You have successfully logged out!";
-            return RedirectToAction("Homepage", "Home");
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -43,7 +43,7 @@ namespace ProiectPAW__MVC_.Controllers
                 TempData["SuccessMessage"] = "You have successfully logged in!";
 
                 // admin logged in
-                return RedirectToAction("Homepage", "Home");
+                return RedirectToAction("Index", "Home");
             }
 
             var customer = _loginService.AuthenticateCustomer(email, password);
@@ -55,7 +55,7 @@ namespace ProiectPAW__MVC_.Controllers
                 TempData["SuccessMessage"] = "You have successfully logged in!";
 
                 // customer logged in
-                return RedirectToAction("Homepage", "Home");
+                return RedirectToAction("Index", "Home");
             }
 
             // authentication failed

@@ -1,24 +1,44 @@
-﻿@page
+﻿<head>
+    <style>
+        .slider {
+            margin-top: 100px !important; /* Adjust this value to move the slider up or down */
+        }
 
+            .slider img {
+                width: 1000px; /* Set a fixed width for the images */
+                height: 400px; /* Set a fixed height for the images */
+                object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+                display: none; /* Hide all images by default */
+                margin: 0 auto; /* Centers the slider horizontally */
+            }
 
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/css/Company.css" />
-
+                .slider img.active {
+                    display: block; /* Display the active image */
+                }
+    </style>
 </head>
+
+@if (TempData.ContainsKey("SuccessMessage"))
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
 
 <body>
 
-    <div class="text-center">
-        <h1 class="display-4">Welcome to</h1>
-        <h1 class="display-4">FSFS</h1>
-        <p><a>Connecting people since 1970</a></p>
+    <div class="text-center" style="margin-top: 40px;">
+        <h1 class="display-4"><b>Welcome to Provider!</b></h1>
+        <p><a style="color: cornflowerblue;">Connecting people since 1972</a></p>
     </div>
 
     <div class="slider">
-        <img src="https://img.freepik.com/free-vector/internet-communication_24877-51941.jpg?w=2000" alt="Slide 1" class="active">
+        <img src="https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slide 1" class="active">
         <img src="https://cdn.britannica.com/88/129488-131-09AB5E83/Internet-blue-screen-blog-society-history-media-2009.jpg" alt="Slide 2">
-        <img src="https://www.intel.in/content/dam/www/central-libraries/us/en/images/language-icon-lvl-2-abstract-bg.png.rendition.intel.web.864.486.png" alt="Slide 3">
+        <img src="https://images.pexels.com/photos/1542252/pexels-photo-1542252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slide 3">
+        <img src="https://images.pexels.com/photos/296085/pexels-photo-296085.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slide 4">
+        <img src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slide 5">
+        <img src="https://images.pexels.com/photos/6557551/pexels-photo-6557551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Slide 6">
     </div>
 
     <script>

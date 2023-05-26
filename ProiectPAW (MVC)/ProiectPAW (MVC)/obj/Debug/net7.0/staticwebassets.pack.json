@@ -13,10 +13,6 @@
       "PackagePath": "staticwebassets\\css\\Cart.css"
     },
     {
-      "Id": "C:\\Users\\mihai\\source\\repos\\ProiectPAW (MVC)\\ProiectPAW (MVC)\\wwwroot\\css\\Company.css",
-      "PackagePath": "staticwebassets\\css\\Company.css"
-    },
-    {
       "Id": "C:\\Users\\mihai\\source\\repos\\ProiectPAW (MVC)\\ProiectPAW (MVC)\\wwwroot\\css\\CreateAccount.css",
       "PackagePath": "staticwebassets\\css\\CreateAccount.css"
     },
@@ -47,6 +43,10 @@
     {
       "Id": "C:\\Users\\mihai\\source\\repos\\ProiectPAW (MVC)\\ProiectPAW (MVC)\\wwwroot\\css\\Television.css",
       "PackagePath": "staticwebassets\\css\\Television.css"
+    },
+    {
+      "Id": "C:\\Users\\mihai\\source\\repos\\ProiectPAW (MVC)\\ProiectPAW (MVC)\\wwwroot\\css\\header&footer.css",
+      "PackagePath": "staticwebassets\\css\\header&footer.css"
     },
     {
       "Id": "C:\\Users\\mihai\\source\\repos\\ProiectPAW (MVC)\\ProiectPAW (MVC)\\wwwroot\\css\\site.css",

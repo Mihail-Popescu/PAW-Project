@@ -1,7 +1,78 @@
-﻿@model List<ProiectPAW__MVC_.Models.Product>
+﻿<head>
+    <style>
+        .plan-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
 
-<head>
-    <link rel="stylesheet" href="~/css/Internet.css" />
+        .plan {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 300px;
+            height: 500px;
+            border-radius: 10px;
+            background-color: lightcoral;
+            color: white;
+            border: none;
+            box-shadow: 2px 2px 5px #888;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: filter 0.3s;
+        }
+
+        .plan:hover {
+            filter: brightness(85%);
+        }
+
+        .plan-title {
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .plan-description {
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .plan-price {
+            font-size: 16px;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .plan-image {
+            width: 80%;
+            max-height: 150px;
+            object-fit: contain;
+            margin-top: 10px;
+            border-radius: 5%; 
+        }
+
+        .plan-button {
+            margin-top: 10px;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .plan-add-to-cart {
+            background-color: #5cb85c;
+        }
+
+        .plan-buttons-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <div class="plan-container">
@@ -9,7 +80,6 @@
     {
         <div class="plan">
             <div class="plan-title">@internetPlan.Name</div>
-            <div class="plan-type">@internetPlan.Category.Name</div>
             <div class="plan-description">@internetPlan.Description</div>
             <div class="plan-price">@internetPlan.Price</div>
             <img class="plan-image" src="@internetPlan.ImageUrl" alt="Plan Image">
@@ -18,7 +88,6 @@
                     <input type="hidden" name="productId" value="@internetPlan.ProductId" />
                     <button type="submit" class="plan-button plan-add-to-cart">Add to Cart</button>
                 </form>
-                <button class="plan-button plan-buy-now">Buy Now</button>
             </div>
         </div>
     }
