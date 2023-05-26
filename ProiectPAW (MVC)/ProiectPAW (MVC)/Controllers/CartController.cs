@@ -20,11 +20,14 @@ namespace ProiectPAW__MVC_.Controllers
         [HttpPost]
         public async Task<IActionResult> AddToCart(int productId)
         {
-            // In a real-world scenario, you would typically associate the order with a user ID, 
-            // but for the purposes of this example, let's just hardcode a user ID
-            var customerId = 1;
+            var customerId = HttpContext.Session.GetInt32("CustomerId");
+            if (!customerId.HasValue)
+            {
+                // Redirect to login or display an error message indicating that the user must be logged in
+                return RedirectToAction("Login", "Login");
+            }
 
-            var orderId = await _cartService.AddToCartAsync(productId, customerId);
+            var orderId = await _cartService.AddToCartAsync(productId, (int)customerId);
             if (orderId == -1)
             {
                 return NotFound(); // product not found
@@ -48,14 +51,44 @@ namespace ProiectPAW__MVC_.Controllers
         }
         public async Task<IActionResult> Cart()
         {
-            var customerId = 1; // Replace with actual customer ID
-            var order = await _orderRepository.GetActiveOrderByCustomerIdAsync(customerId);
+            var customerId = HttpContext.Session.GetInt32("CustomerId");
+            if (!customerId.HasValue)
+            {
+                // Redirect to login or display an error message indicating that the user must be logged in
+                return RedirectToAction("Login", "Login");
+            }
+
+            var order = await _orderRepository.GetActiveOrderByCustomerIdAsync((int)customerId);
             if (order == null)
             {
                 return View(new List<OrderItem>());
             }
+
             var cartItems = await _orderItemRepository.GetOrderItemsByOrderIdAsync((int)order.OrderId);
             return View(cartItems);
+        }
+        [HttpGet]
+        [HttpPost]
+        public async Task<IActionResult> Checkout()
+        {
+            var customerId = HttpContext.Session.GetInt32("CustomerId");
+            if (!customerId.HasValue)
+            {
+                // Redirect to login or display an error message indicating that the user must be logged in
+                return RedirectToAction("Login", "Login");
+            }
+
+            var order = await _orderRepository.GetActiveOrderByCustomerIdAsync((int)customerId);
+            if (order == null)
+            {
+                return NotFound(); // order not found or cart is empty
+            }
+
+            // Clear the cart
+            await _cartService.ClearCartAsync((int)customerId);
+
+            TempData["SuccessMessage"] = "Order has been placed successfully!";
+            return RedirectToAction("Cart");
         }
     }
 

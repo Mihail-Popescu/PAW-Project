@@ -1,4 +1,5 @@
-﻿using ProiectPAW__MVC_.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProiectPAW__MVC_.Models;
 using ProiectPAW__MVC_.Repositories;
 
 public class CartService
@@ -69,6 +70,23 @@ public class CartService
 
         await _orderRepository.UpdateOrderAsync(order);
         await _orderItemRepository.RemoveOrderItemAsync(orderItemId);
+
+        return true;
+    }
+
+    public async Task<bool> ClearCartAsync(int customerId)
+    {
+        var order = await _orderRepository.GetActiveOrderByCustomerIdAsync(customerId);
+        if (order == null)
+        {
+            return false;
+        }
+
+        var orderItems = await _orderItemRepository.GetOrderItemsByOrderIdAsync((int)order.OrderId);
+        foreach (var orderItem in orderItems)
+        {
+            await RemoveFromCartAsync(orderItem.OrderItemId);
+        }
 
         return true;
     }

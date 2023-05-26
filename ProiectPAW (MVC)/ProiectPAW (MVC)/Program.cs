@@ -27,7 +27,8 @@ builder.Services.AddTransient<TelevisionService>();
 builder.Services.AddTransient<PhonesService>();
 builder.Services.AddTransient<CartService>();
 builder.Services.AddTransient<CreateAccountService>();
-
+builder.Services.AddTransient<AccountDetailsService>();
+builder.Services.AddTransient<HomepageService>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
@@ -36,14 +37,14 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromSeconds(1800000);
+    options.IdleTimeout = TimeSpan.FromSeconds(18000);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 
@@ -56,10 +57,9 @@ if (!app.Environment.IsDevelopment())
 }
 app.UseSession();
 
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseAuthentication();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

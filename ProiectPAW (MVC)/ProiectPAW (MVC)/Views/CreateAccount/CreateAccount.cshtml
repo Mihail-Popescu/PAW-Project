@@ -1,98 +1,176 @@
-﻿@page
-@{
-}
-
+﻿<!DOCTYPE html>
 <html>
 <head>
     <title>Create Account</title>
-    <link rel="stylesheet" type="text/css" href="~/css/CreateAccount.css">
+    <style>
+        .account-details-body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+        }
+
+        body {
+            background-color: #f2f2f2;
+        }
+        .account-box.login-box {
+            margin-top: 10px;
+            width: 800px;
+            min-height: 500px;
+            background-color: #fff;
+            color: #000;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
+            padding: 70px 30px;
+        }
+
+        .account-box h2 {
+            margin: 0;
+            padding: 0 0 20px;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-column {
+            flex-basis: 32%;
+            padding-right: 10px;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .account-box input[type="text"],
+        .account-box input[type="password"],
+        .account-box input[type="email"],
+        .account-box input[type="number"],
+        .account-box input[type="date"] {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #000;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #000;
+            font-size: 16px;
+        }
+
+        .submit-button {
+            border: none;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+            background-color: cornflowerblue;
+            cursor: pointer;
+            border-radius: 20px;
+            margin-top: 20px;
+            float: right;
+        }
+    </style>
 </head>
 <body>
-    <div class="login-box" style="display: grid;">
-        <h2>Create Account</h2>
-        <form action="@Url.Action("Create", "CreateAccount")" method="post">
-            <div class="column">
-            <div class="user-box">
-                <label>First Name</label>
-                <input type="text" name="customer.FirstName" required="">
-            </div>
-            <div class="user-box">
-                <label>Last Name</label>
-                    <input type="text" name="customer.LastName" required="">
-            </div>
-            <div class="user-box">
-                <label>Email</label>
-                    <input type="email" name="customer.Email" required="">
-            </div>
-            <div class="user-box">
-                <label>Password</label>
-                    <input type="password" name="customer.Password" required="">
-            </div>
-            <div class="user-box">
-                <label>Phone Number</label>
-                    <input type="number" name="customer.PhoneNumber" required="">
-            </div>
-            <div class="user-box">
-                <label>Profile Image</label>
-                    <input type="file" name="customer.Profile Image" required="">
-            </div>
-            </div>
-            <div class="column">
-                <div class="user-box">
-                    <label>Country</label>
-                    <input type="text" name="address.Country" required="">
+    <div class="account-details-body">
+        <div class="account-box login-box">
+            <h2>Create Account</h2>
+            <form action="@Url.Action("Create", "CreateAccount")" method="post">
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="customer.FirstName" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="customer.LastName" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="customer.Email" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="customer.Password" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="number" name="customer.PhoneNumber" required="">
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label>Country</label>
+                            <input type="text" name="address.Country" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>County</label>
+                            <input type="text" name="address.County" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" name="address.City" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Postalcode</label>
+                            <input type="number" name="address.Postalcode" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Block</label>
+                            <input type="number" name="address.Block" required="">
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label>Floor</label>
+                            <input type="number" name="address.Floor" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Apartment</label>
+                            <input type="number" name="address.Apartment" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Staircase</label>
+                            <input type="number" name="address.Staircase" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Street</label>
+                            <input type="text" name="address.Street" required="">
+                        </div>
+                    </div>
                 </div>
-                <div class="user-box">
-                    <label>County</label>
-                    <input type="text" name="address.County" required="">
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label>Number</label>
+                            <input type="number" name="card.Number" required="">
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label>Expiration Date</label>
+                            <input type="date" name="card.Date" required="">
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="number" name="card.CVV" required="">
+                        </div>
+                    </div>
                 </div>
-                <div class="user-box">
-                    <label>City</label>
-                    <input type="text" name="address.City" required="">
-                </div>
-                <div class="user-box">
-                    <label>Postalcode</label>
-                    <input type="number" name="address.Postalcode" required="">
-                </div>
-                <div class="user-box">
-                    <label>Block</label>
-                    <input type="number" name="address.Block" required="">
-                </div>
-                <div class="user-box">
-                    <label>Floor</label>
-                    <input type="number" name="address.Floor" required="">
-                </div>
-                <div class="user-box">
-                    <label>Apartment</label>
-                    <input type="number" name="address.Apartment" required="">
-                </div>
-                <div class="user-box">
-                    <label>Staircase</label>
-                    <input type="number" name="address.Staircase" required="">
-                </div>
-                <div class="user-box">
-                    <labael><b>Street</b></labael>
-                    <input type="text" name="address.Street" required="">
-                </div>
-             </div>
-            <div class="column">
-                <div class="user-box">
-                    <label>Number</label>
-                    <input type="number" name="card.Number" required="">
-                </div>
-                <div class="user-box">
-                    <label>Expiration Date</label>
-                    <input type="date" name="card.Date" required="">
-                </div>
-                <div class="user-box">
-                    <label>CVV</label>
-                    <input type="number" name="card.CVV" required="">
-                </div>
-            </div>
-
-            <a href="/Login">Already have an account?</a>
-            <input type="submit" name="create_account" value="Create Account">
-        </form>
+                <a href="/Login/Login">Already have an account?</a>
+                <input type="submit" name="create_account" value="Create Account" class="submit-button">
+            </form>
+        </div>
     </div>
 </body>
 </html>

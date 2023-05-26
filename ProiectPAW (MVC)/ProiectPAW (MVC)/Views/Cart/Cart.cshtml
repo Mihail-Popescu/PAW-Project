@@ -1,30 +1,115 @@
 ﻿@model List<ProiectPAW__MVC_.Models.OrderItem>
 
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<head>
+    <style>
+        .cart-container {
+            display: flex;
+            flex-wrap: wrap; /* Enable wrapping */
+            justify-content: flex-start; /* Adjust the justification */
+            align-items: flex-start; /* Adjust the alignment */
+            margin-top: 100px;
+        }
+
+        .cart-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: calc(25% - 20px); /* 25% width for each item with 20px margin */
+            height: 500px;
+            border-radius: 10px;
+            background-color: lightcoral;
+            color: white;
+            border: none;
+            box-shadow: 2px 2px 5px #888;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cart-item:hover {
+            filter: brightness(85%);
+        }
+
+        .cart-item-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .cart-item img {
+            width: 80%;
+            max-height: 150px;
+            object-fit: contain;
+            margin-top: 10px;
+            border-radius: 5%;
+        }
+
+        .cart-item-price {
+            font-size: 16px;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .cart-remove-button {
+            margin-top: 10px;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #dc3545; /* Change the background color for remove button */
+        }
+
+        .cart-total {
+            margin-top: 20px;
+            text-align: right; /* Adjust the alignment */
+        }
+
+        .cart-checkout-button {
+            margin-top: 10px;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #5cb85c; /* Change the background color for checkout button */
+        }
+
+        .cart-empty {
+            text-align: center;
+        }
+
+        .success-message {
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
 
 @if (Model.Any())
 {
     <div class="cart-container">
-        <h1>Your Cart</h1>
-        <div class="cart-items">
-            @foreach (var item in Model)
-            {
-                <div class="cart-item">
-                    <img src="@item.Product.ImageUrl" alt="@item.Product.Name">
-                    <div class="cart-item-info">
-                        <div class="plan-price">@item.OrderItemId</div>
-                        <h2>@item.Product.Name</h2>
-                        <p>Price: $@item.Product.Price</p>
-                        <button class="cart-remove-button" onclick="location.href='@Url.Action("RemoveFromCart", "Cart", new { orderItemId = item.OrderItemId })'">Remove</button>
-                    </div>
+        <h1 style="margin-top: -100px;">Your Cart</h1>
+        @foreach (var item in Model)
+        {
+            <div class="cart-item">
+                <img src="@item.Product.ImageUrl" alt="@item.Product.Name">
+                <div class="cart-item-info">
+                    <h2>@item.Product.Name</h2>
+                    <p>Price: $@item.Product.Price</p>
+                    <button class="cart-remove-button" onclick="location.href='@Url.Action("RemoveFromCart", "Cart", new { orderItemId = item.OrderItemId })'">Remove</button>
                 </div>
-            }
-        </div>
-        <div class="cart-total">
-            <p>Total: $@(Model.Sum(item => item.Product.Price))</p>
-        </div>
-        <button class="cart-checkout-button" onclick="location.href='@Url.Action("Checkout", "Purchase")'">Checkout</button>
+            </div>
+        }
+    </div>
+    <div class="cart-total" style="font-size: 24px;">
+        <p>Total: $@(Model.Sum(item => item.Product.Price))</p>
+        <button class="cart-checkout-button" onclick="location.href='@Url.Action("Checkout", "Cart")'">Checkout</button>
     </div>
 }
 else
@@ -32,5 +117,12 @@ else
     <div class="cart-empty">
         <h1>Your Cart</h1>
         <p>Your cart is empty.</p>
+    </div>  
+}
+
+@if (!string.IsNullOrEmpty(TempData["SuccessMessage"] as string))
+{
+    <div class="success-message">
+        @TempData["SuccessMessage"]
     </div>
 }

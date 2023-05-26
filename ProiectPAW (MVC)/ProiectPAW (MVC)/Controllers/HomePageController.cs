@@ -1,12 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProiectPAW__MVC_.Services;
 
 namespace ProiectPAW__MVC_.Controllers
 {
-    public class HomePageController : Controller
+    public class HomepageController : Controller
     {
-        public IActionResult Index()
+        private readonly HomepageService _homepageService;
+
+        public HomepageController(HomepageService homepageService)
         {
-            return View();
+            _homepageService = homepageService;
+        }
+
+        public IActionResult Homepage()
+        {
+            var secondPlans = _homepageService.GetSecondPlans();
+            return View(secondPlans);
         }
     }
 }

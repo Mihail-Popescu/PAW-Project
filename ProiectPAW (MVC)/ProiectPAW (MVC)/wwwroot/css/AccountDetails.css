@@ -1,15 +1,15 @@
-﻿* {
+﻿.account-details {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+.account-details-body {
     background-color: #f2f2f2;
 }
 
 .account-box {
-    width: 400px;
+    width: 800px;
     height: 500px;
     background-color: #fff;
     color: #000;
@@ -21,33 +21,47 @@ body {
     padding: 70px 30px;
 }
 
-h2 {
-    margin: 0;
-    padding: 0 0 20px;
-    text-align: center;
-    font-size: 22px;
-}
+    .account-box h2 {
+        margin: 0;
+        padding: 0 0 20px;
+        text-align: center;
+        font-size: 22px;
+    }
 
-.account-box form input[type="text"],
-.account-box form input[type="password"],
-.account-box form input[type="email"] {
-    border: none;
-    border-bottom: 1px solid #000;
-    background: transparent;
-    outline: none;
-    height: 40px;
-    color: #000;
-    font-size: 16px;
-}
+    .account-box .form-column {
+        width: 50%;
+        float: left;
+        padding-right: 10px;
+        box-sizing: border-box;
+    }
 
-.account-box form input[type="submit"] {
-    border: none;
-    outline: none;
-    height: 40px;
-    color: #fff;
-    font-size: 16px;
-    background-color: #000;
-    cursor: pointer;
-    border-radius: 20px;
-    margin-top: 20px;
-}
+    .account-box .form-group {
+        margin-bottom: 20px;
+    }
+
+    .account-box input[type="text"],
+    .account-box input[type="password"],
+    .account-box input[type="email"],
+    .account-box input[type="number"],
+    .account-box input[type="date"] {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #000;
+        background: transparent;
+        outline: none;
+        height: 40px;
+        color: #000;
+        font-size: 16px;
+    }
+
+    .account-box input[type="submit"] {
+        border: none;
+        outline: none;
+        height: 40px;
+        color: #fff;
+        font-size: 16px;
+        background-color: #000;
+        cursor: pointer;
+        border-radius: 20px;
+        margin-top: 20px;
+    }

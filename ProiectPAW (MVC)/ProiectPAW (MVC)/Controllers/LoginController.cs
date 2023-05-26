@@ -22,7 +22,7 @@ namespace ProiectPAW__MVC_.Controllers
         {
             return View();
         }
-
+        [SessionAuthorize]
         public async Task<IActionResult> Logout()
         {
             HttpContext.Session.Clear();
@@ -51,6 +51,9 @@ namespace ProiectPAW__MVC_.Controllers
             {
                 HttpContext.Session.SetString("IsAuthenticated", "true");
                 HttpContext.Session.SetString("UserRole", "Customer");
+
+                // Store CustomerId in session
+                HttpContext.Session.SetInt32("CustomerId", customer.CustomerId);
 
                 TempData["SuccessMessage"] = "You have successfully logged in!";
 

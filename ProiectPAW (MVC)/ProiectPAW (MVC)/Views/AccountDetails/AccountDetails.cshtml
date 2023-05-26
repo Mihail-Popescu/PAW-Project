@@ -1,46 +1,158 @@
-﻿@page
-@{
-}
-
+﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Account Details</title>
-	<link rel="stylesheet" type="text/css" href="~/css/AccountDetails.css">
+    <style>
+        .account-details-body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+        }
+
+        .account-box {
+            width: 800px;
+            min-height: 500px;
+            background-color: #fff;
+            color: #000;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
+            padding: 70px 30px;
+        }
+
+            .account-box h2 {
+                margin: 0;
+                padding: 0 0 20px;
+                text-align: center;
+                font-size: 22px;
+            }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-column {
+            flex-basis: 32%;
+            padding-right: 10px;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .account-box input[type="text"],
+        .account-box input[type="password"],
+        .account-box input[type="email"],
+        .account-box input[type="number"],
+        .account-box input[type="date"] {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #000;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #000;
+            font-size: 16px;
+        }
+
+        .submit-button {
+            border: none;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+            background-color: cornflowerblue;
+            cursor: pointer;
+            border-radius: 20px;
+            margin-top: 20px;
+            float: right;
+        }
+    </style>
 </head>
-<body>
-	<div class="account-box">
-		<h2>Account Details</h2>
-		<form>
-			<div class="user-box">
-				<label>First Name&nbsp;</label>
-				<input type="text" name="firstName" value="Mihail" required="">
-			</div>
-			<div class="user-box">
-				<label>Last Name&nbsp;</label>
-				<input type="text" name="lastName" value="Popescu" required="">
-			</div>
-			<div class="user-box">
-				<label>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-				<input type="email" name="email" value="mihai@example.com" required="">
-			</div>
-			<div class="user-box">
-				<label>Password&nbsp;&nbsp;&nbsp;</label>
-				<input type="password" name="password" value="********" required="">
-			</div>
-			<div class="user-box">
-				<label>Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-				<input type="text" name="address" value="123 absda" required="">
-			</div>
-			<div class="user-box">
-				<label>City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-				<input type="text" name="city" value="Oras" required="">
-			</div>
-			<div class="user-box">
-				<label>Zip Code&nbsp;&nbsp;&nbsp;</label>
-				<input type="text" name="zipCode" value="21315" required="">
-			</div>
-			<input type="submit" name="" value="Save Changes">
-		</form>
-	</div>
+<body class="account-details-body">
+    <div class="account-box">
+        <h2>Account Details</h2>
+        <form asp-controller="AccountDetails" asp-action="UpdateAccount" method="post">
+            <div class="form-row">
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName" value="@Model.FirstName" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName" value="@Model.LastName" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input type="number" id="phoneNumber" name="phoneNumber" value="@Model.PhoneNumber" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <input type="text" id="country" name="address.country" value="@Model.Address?.Country" required />
+                    </div>
+                </div>
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="county">County:</label>
+                        <input type="text" id="county" name="address.county" value="@Model.Address?.County" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" name="address.city" value="@Model.Address?.City" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="postalCode">Postal Code:</label>
+                        <input type="number" id="postalCode" name="address.postalCode" value="@Model.Address?.Postalcode" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Street:</label>
+                        <input type="text" id="street" name="address.street" value="@Model.Address?.Street" required />
+                    </div>
+                </div>
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="block">Block:</label>
+                        <input type="number" id="block" name="address.block" value="@Model.Address?.Block" />
+                    </div>
+                    <div class="form-group">
+                        <label for="floor">Floor:</label>
+                        <input type="number" id="floor" name="address.floor" value="@Model.Address?.Floor" />
+                    </div>
+                    <div class="form-group">
+                        <label for="apartment">Apartment:</label>
+                        <input type="number" id="apartment" name="address.apartment" value="@Model.Address?.Apartment" />
+                    </div>
+                    <div class="form-group">
+                        <label for="staircase">Staircase:</label>
+                        <input type="number" id="staircase" name="address.staircase" value="@Model.Address?.Staircase" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="number" id="cardNumber" name="card.number" value="@Model.Card?.Number" required />
+                </div>
+                <div class="form-group">
+                    <label for="cardDate">Card Date:</label>
+                    <input type="date" id="cardDate" name="card.date" value="@Model.Card?.Date" required />
+                </div>
+                <div class="form-group">
+                    <label for="cardCVV">Card CVV:</label>
+                    <input type="number" id="cardCVV" name="card.CVV" value="@Model.Card?.CVV" required />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <button type="submit" class="submit-button">Update Account</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

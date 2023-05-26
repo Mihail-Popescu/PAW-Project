@@ -1,15 +1,80 @@
-﻿@page
-@{
-}
-
-<html>
+﻿<html>
 <head>
-	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="~/css/Login.css">
+    <title>Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f2f2;
+        }
+
+        .login-box {
+            width: 400px;
+            height: 500px;
+            background-color: #fff;
+            color: #000;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
+            padding: 70px 30px;
+        }
+
+        h2 {
+            margin: 0;
+            padding: 0 0 20px;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .login-box form input[type="text"],
+        .login-box form input[type="password"] {
+            border: none;
+            border-bottom: 1px solid #000;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #000;
+            font-size: 16px;
+        }
+
+        .login-box form input[type="submit"] {
+            border: none;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+            background-color: cornflowerblue; /* Change the button color to blue */
+            cursor: pointer;
+            border-radius: 20px;
+            margin-top: 20px;
+            margin-left: 100px;
+        }
+
+            .login-box form input[type="submit"]:hover {
+                background-color: blue;
+            }
+
+        .login-box a {
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 20px;
+            color: #777;
+        }
+
+            .login-box a:hover {
+                color: #000;
+            }
+    </style>
 </head>
 <body>
-	<div class="login-box">
-		<h2>Login</h2>
+    <div class="login-box">
+        <h2>Login</h2>
         <form method="post" asp-controller="Login" asp-action="Authenticate">
             <div class="user-box">
                 <label>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -19,11 +84,10 @@
                 <label>Password&nbsp;&nbsp;</label>
                 <input type="password" name="password" required="">
             </div>
-            <a href="/ForgotPassword">Forgot password?</a>
-            <a href="/CreateAccount">Don't have an account?</a>
+            <a href="/CreateAccount/CreateAccount">Don't have an account?</a>
             <input type="submit" name="" value="Submit">
         </form>
 
-	</div>
+    </div>
 </body>
 </html>
